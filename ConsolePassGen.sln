@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35818.85 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsolePassGen", "ConsolePassGen\ConsolePassGen.csproj", "{260799BB-A947-4422-93EB-CBF09F4BD1A1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{260799BB-A947-4422-93EB-CBF09F4BD1A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{260799BB-A947-4422-93EB-CBF09F4BD1A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{260799BB-A947-4422-93EB-CBF09F4BD1A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{260799BB-A947-4422-93EB-CBF09F4BD1A1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0AC41B73-8931-455D-B504-513D9552632B}
+	EndGlobalSection
+EndGlobal
