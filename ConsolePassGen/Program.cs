@@ -122,7 +122,8 @@ namespace ConsolePassGen
                     result.Append(digits[rand.Next(0, digits.Length)]);
                 }
             }
-            
+
+            // Return password
             return result.ToString();
         }
     }
