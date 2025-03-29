@@ -13,18 +13,59 @@ namespace ConsolePassGen
             Console.Write("Enter length: ");
             int length = Convert.ToInt32(Console.ReadLine());
 
-            string password = GeneratePass(length);
+            Console.Write("Include letters(Y/n): ");
+            bool includeLetters = false;
+            if (Console.ReadLine() == "Y")
+            {
+                includeLetters = true;
+            }
+
+            //Console.Write("Include special chars(Y/n): ");
+            bool includeSpecialChars = false;
+            //if (Console.ReadLine() == "Y")
+            //{
+            //    includeSpecialChars = true;
+            //}
+
+            string password = GeneratePass(length, includeLetters, includeSpecialChars);
             Console.WriteLine(password);
         }
 
-        static string GeneratePass(int length)
+        static string GeneratePass(int length, bool includeLetters, bool includeSpecialChars)
         {
+            const string digits = "0123456789";
+            const string letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            const string specialChars = "!@#$%^&*()_+-=[]{}|;:,.<>?";
+
             StringBuilder result = new StringBuilder();
             Random rand = new Random();
 
             for (int i = 0; i < length; i++)
             {
-                result.Append(Convert.ToString(rand.Next(0, 9)));
+                if (includeLetters)
+                {
+                    bool let = Convert.ToBoolean(rand.Next(0, 2));
+                    if (let)
+                    {
+                        result.Append(letters[rand.Next(0, 52)]);
+                    }
+                    else
+                    {
+                        result.Append(digits[rand.Next(0, 10)]);
+                    }
+                }
+                //else if (includeSpecialChars)
+                //{
+
+                //}
+                //else if (includeLetters && includeSpecialChars)
+                //{
+
+                //}
+                else
+                {
+                    result.Append(digits[rand.Next(0, 9)]);
+                }
             }
 
             return result.ToString();
