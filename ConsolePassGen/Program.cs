@@ -68,6 +68,7 @@ namespace ConsolePassGen
                 }
             }
 
+            // Return password
             return result.ToString();
         }
     }
