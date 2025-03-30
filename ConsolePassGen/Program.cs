@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,22 +59,22 @@ namespace ConsolePassGen
                     // Randomly select character type (0=digit, 1=special, 2=letter)
                     byte choice = Convert.ToByte(rand.Next(0, 3));
 
-                    // Add random digit
-                    if (choice == 0)
+                    switch (choice)
                     {
-                        result.Append(digits[rand.Next(0, digits.Length)]);
-                    }
+                        // Add random digit
+                        case 0:
+                            result.Append(digits[rand.Next(0, digits.Length)]);
+                            break;
 
-                    // Add random special character
-                    else if (choice == 1)
-                    {
-                        result.Append(specialChars[rand.Next(0, specialChars.Length)]);
-                    }
+                        // Add random special character
+                        case 1:
+                            result.Append(specialChars[rand.Next(0, specialChars.Length)]);
+                            break;
 
-                    // Add random letter
-                    else
-                    {
-                        result.Append(letters[rand.Next(0, letters.Length)]);
+                        // Add random letter
+                        case 2:
+                            result.Append(letters[rand.Next(0, letters.Length)]);
+                            break;
                     }
                 }
 
