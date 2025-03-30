@@ -1,25 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ConsolePassGen
 {
-    class Program
+    class GeneratePassword
     {
-        static void Main(string[] args)
+        public static string LastPassword = null;
+
+        public static void PasswordSettings()
         {
             // Password length selection
             Console.Write("Enter length: ");
             int length = Convert.ToInt32(Console.ReadLine());
+            if (length < 1)
+            {
+                Console.WriteLine("Error, the length cannot be less than one!");
+                return;
+            }
 
             // Choosing to include letters
             Console.Write("Include letters(Y/n): ");
             bool includeLetters = false;
-            if (Console.ReadLine() == "Y")
+            if (Console.ReadLine().ToLower() == "y")
             {
                 includeLetters = true;
             }
@@ -27,18 +32,19 @@ namespace ConsolePassGen
             // Choosing to include special characters 
             Console.Write("Include special chars(Y/n): ");
             bool includeSpecialChars = false;
-            if (Console.ReadLine() == "Y")
+            if (Console.ReadLine().ToLower() == "y")
             {
                 includeSpecialChars = true;
             }
 
             // Password generation function call
             string password = GeneratePass(length, includeLetters, includeSpecialChars);
+            LastPassword = password;
             // Output of the result
-            Console.WriteLine(password);
+            Console.WriteLine("Generated password is: " + password);
         }
 
-        static string GeneratePass(int length, bool includeLetters, bool includeSpecialChars)
+        public static string GeneratePass(int length, bool includeLetters, bool includeSpecialChars)
         {
             // Define character sets
             const string digits = "0123456789";
